@@ -42,7 +42,7 @@ function App() {
       <Wrapper>
         <Header />
         <Routes>
-          <Route path="/" element={<UsersPage />} />
+          <Route exact path="/" element={<UsersPage />} />
           <Route path="/todos/:slug" element={<TodosPage />} />
           <Route
             path="*"

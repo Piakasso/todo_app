@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+
+import { fetchTodos, setActiveUser } from "../features/Todos/todosSlice";
 
 import Main from "../layouts/Main";
 import TodosList from "../features/Todos/TodosList";
@@ -8,6 +12,7 @@ import Controls from "../features/Controls/Controls";
 import ErrorPage from "./ErrorPage";
 
 import { selectErrorTodos } from "../features/Todos/todosSlice";
+import { useDispatch } from "react-redux";
 
 const Title = styled.h1`
   position: sticky;
@@ -41,6 +46,13 @@ const ControlsContainer = styled.div`
 `;
 
 const TodosPage = () => {
+  const dispatch = useDispatch();
+
+  const { slug } = useParams();
+  useEffect(() => {
+    dispatch(fetchTodos(`${slug}/todos`));
+    dispatch(setActiveUser(slug));
+  }, [dispatch, slug]);
   const error = useSelector(selectErrorTodos);
 
   return error ? (

@@ -1,16 +1,12 @@
 import styled from "styled-components";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { useEffect } from "react";
 
 import Todo from "./Todo";
 import {
-  fetchTodos,
   selectAll,
   selectFilteredTodos,
   selectLoadingTodos,
-  setActiveUser,
   setAll,
 } from "./todosSlice";
 import Skeleton from "../Skeleton/Skeleton";
@@ -27,16 +23,11 @@ const TodolistEl = styled.ul`
 `;
 
 const TodosList = () => {
-  const { slug } = useParams();
   const dispatch = useDispatch();
   const todos = useSelector(selectAll);
 
   const loading = useSelector(selectLoadingTodos);
 
-  useEffect(() => {
-    dispatch(fetchTodos(`${slug}/todos`));
-    dispatch(setActiveUser(slug));
-  }, [dispatch, slug]);
   const filteredTodos = useSelector(selectFilteredTodos);
 
   const handleOnDragEnd = (result) => {
