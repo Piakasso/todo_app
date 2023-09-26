@@ -11,7 +11,7 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
-  <Router>
+  <Router basename="/todo_app">
     <Provider store={store}>
       <App />
     </Provider>

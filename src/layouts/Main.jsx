@@ -9,6 +9,7 @@ const MainWrapper = styled.main`
 `;
 
 const Notebook = styled.div`
+  flex-shrink: 1;
   align-content: center;
   border: 4px solid;
   width: 600px;
@@ -22,6 +23,10 @@ const Notebook = styled.div`
 
   @media (max-height: 799px) {
     height: 500px;
+  }
+
+  @media (max-height: 550px) {
+    height: 300px;
   }
 
   @media (max-width: 767px) {

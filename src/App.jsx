@@ -19,6 +19,9 @@ const AppEl = styled.div`
     font-size: 14px;
     font-weight: 600;
   }
+  @media (max-width: 479px) {
+    overflow-y: hidden;
+  }
 `;
 
 const Wrapper = styled.div`

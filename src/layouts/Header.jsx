@@ -29,7 +29,6 @@ const HeaderLink = styled.li`
 const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log(location);
   return (
     <HeaderEl>
       <Link
