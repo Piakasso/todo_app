@@ -10,6 +10,7 @@ import {
   setAll,
 } from "./todosSlice";
 import Skeleton from "../Skeleton/Skeleton";
+import { useNavigate } from "react-router";
 
 const TodolistEl = styled.ul`
   display: flex;
@@ -23,6 +24,8 @@ const TodolistEl = styled.ul`
 `;
 
 const TodosList = () => {
+  const navigate = useNavigate();
+  console.log(navigate);
   const dispatch = useDispatch();
   const todos = useSelector(selectAll);
 

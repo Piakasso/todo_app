@@ -47,8 +47,8 @@ const ControlsContainer = styled.div`
 
 const TodosPage = () => {
   const dispatch = useDispatch();
-
   const { slug } = useParams();
+
   useEffect(() => {
     dispatch(fetchTodos(`${slug}/todos`));
     dispatch(setActiveUser(slug));
